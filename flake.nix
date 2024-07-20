@@ -61,9 +61,12 @@
           nixgl.overlay
           (import ./overlays/debugpy.nix)
           (import ./overlays/freerdp.nix)
+          (import ./overlays/keyboard-visualizer.nix)
           (import ./overlays/materialyoucolor.nix)
           (import ./overlays/end-4-dots.nix)
           (import ./overlays/wofi-calc.nix)
+          (import ./overlays/workspaces.nix)
+          (import ./overlays/jetbrains-toolbox.nix)
         ];
       };
       pkgs-unstable = import inputs.nixpkgs-unstable {
@@ -88,6 +91,7 @@
           ./configuration.nix
           ./hardware-configuration.nix
           ./rand/boot.nix
+          ./rand/games.nix
           ./rand/graphics.nix
           ./rand/networking.nix
           ./rand/virtualisation.nix

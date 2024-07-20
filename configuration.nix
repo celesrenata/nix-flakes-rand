@@ -49,13 +49,16 @@
   };
 
   # Enable the GDM Display Manager.
-  services.xserver.displayManager.sddm.enable = true;
-  services.displayManager.defaultSession = "plasma";
+  services.xserver.displayManager.gdm.enable = true;
+  services.displayManager.defaultSession = "hyprland";
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
   # Enable the Enlightenment Desktop Environment.
-  services.xserver.desktopManager.plasma6.enable = true;
+  services.xserver.desktopManager.mate.enable = true;
+
+  # Enable OpenRGB.
+  services.hardware.openrgb.enable = true;
 
   programs.hyprland = {
     # Install the packages from nixpkgs
@@ -83,6 +86,7 @@
   # Enable CUPS to print documents.
   services.printing.enable = true;
   services.printing.drivers = [ pkgs.gutenprint ];
+  hardware.sane.enable = true;
   services.avahi = {
     enable = true;
     nssmdns4 = true;
@@ -151,6 +155,25 @@
 
   # Enable touchpad support (enabled default in most desktopManager).
   services.libinput.enable = true;
+  services.keyd = {
+    enable = true;
+    keyboards.mac.settings = {
+      main = {
+        fn = "overload(464)";
+        control = "layer(meta)";
+        meta = "layer(control)";
+        rightcontrol = "layer(meta)";
+      };
+      meta = {
+        left =  "control-left";
+        right = "control-right";
+        space = "control-space";
+      };
+    };
+    keyboards.mac.ids = [
+      "*"
+    ];
+  };
 
   # Gestures.
   services.touchegg.enable = true;
@@ -158,6 +181,27 @@
   # Garbage Collection.
   nix.optimise.automatic = true;
  
+  # Steam.
+  programs.steam.package = pkgs.steam.override {
+    extraPkgs = pkgs: [
+      pkgs.steamcmd
+      pkgs.glxinfo
+      pkgs.steam-tui
+      #pkgs.proton-ge-bin
+    ];
+  };
+
+  programs.steam = {
+    enable = true;
+    remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
+    dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
+  };
+  hardware.steam-hardware.enable = true;
+  systemd.user.services.monado.environment = {
+    STEAMVR_LH_ENABLE = "1";
+    XRT_COMPOSITOR_COMPUTE = "1";
+  };
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.squid = {
     isNormalUser = true;
@@ -203,6 +247,8 @@
     mlocate
     util-linux
     openssl
+    xsane
+    gnome.simple-scan
     btop
     usbutils
     pciutils
@@ -210,9 +256,12 @@
     tldr
     bc
     freerdp3Override
+    aws-workspacesOverride
+    tiny-dfr
     kbd
     imagemagick
     sunshine
+    nvtopPackages.full
     android-tools
 
     # Shells.
@@ -220,7 +269,23 @@
     zsh
     bash
 
+    # Kubernetes Tools.
+    k3s
+    (wrapHelm pkgs-unstable.kubernetes-helm {
+      plugins = with pkgs-unstable.kubernetes-helmPlugins; [
+        helm-secrets
+        helm-diff
+        helm-s3
+        helm-git
+      ];
+    }) 
+    pkgs-unstable.kubernetes-helm
+    pkgs-unstable.helmfile
+    kustomize
+    kompose
+
     # Development Tools.
+    jetbrains-toolboxOverride
     git
     nodejs_20
     meson
@@ -284,6 +349,11 @@
     wayland-scanner
     waypipe
 
+    # Media
+    plex-media-player
+    jellyfin-media-player
+    kdenlive
+    
     # GTK
     gtk3
     gtk3.dev

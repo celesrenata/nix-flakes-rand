@@ -28,8 +28,8 @@
             VERSION = "win11e";
             USERNAME = "celes";
             PASSWORD = "renata";
-            DISK_SIZE = "32G";
-            RAM_SIZE = "4G";
+            DISK_SIZE = "128G";
+            RAM_SIZE = "8G";
             CPU_CORES = "4";
           };
           extraOptions = [

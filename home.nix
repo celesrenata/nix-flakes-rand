@@ -225,6 +225,8 @@ let
     pciutils # lspci
     usbutils # lsusb
     wofi-calc
+    openrgb-with-all-plugins
+    KeyboardVisualizer
 
     # Development
     git
