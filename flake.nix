@@ -46,7 +46,6 @@
       pkgs = import inputs.nixpkgs rec {
         inherit system;
         config = {
-          rocmSupport = true;
           allowUnfree = true;
           allowBroken = true;
           allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
@@ -69,7 +68,6 @@
       pkgs-unstable = import inputs.nixpkgs-unstable {
         inherit system;
         config = {
-          rocmSupport = true;
           allowUnfree = true;
           allowBroken = true;
         };
