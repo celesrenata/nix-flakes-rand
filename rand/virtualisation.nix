@@ -14,7 +14,7 @@
         windows = {
           hostname = "winvm";
           autoStart = true;
-          image = "dockurr/windows";
+          image = "dockur/windows";
           volumes = [
             "/mnt/shared:/shared"
             "/home/docker/windows/data:/storage"
