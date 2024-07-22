@@ -6,8 +6,8 @@ rec {
     src = prev.fetchFromGitHub {
       owner = "celesrenata";
       repo = "dots-hyprland";
-      rev = "8853fb956463e8baa604ad6e8124d4b0dd301681";
-      sha256 = "sha256-OOdVnX6r11FJFE3qX7aIW0Yyo1ZTeegc41QkexsrwtU=";
+      rev = "bdbf22e59462f2ca5a6495346f3c30bad1f84be1";
+      sha256 = "sha256-3nScatr4daD4Ld6jTFE7NuWSbnQ/ekBYf7PGKm77n6s=";
     };
 
     installPhase = ''
