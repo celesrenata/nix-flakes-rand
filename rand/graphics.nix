@@ -12,7 +12,7 @@
 
     # Load Intel driver for Xorg and Waylandard
     environment.variables.LIBVA_DRIVER_NAME = "i965";
-    services.xserver.videoDrivers = [ "intel" ];
+    services.xserver.videoDrivers = [ "intel" "displaylink" ];
     security.wrappers.sunshine = {
         owner = "root";
         group = "root";
