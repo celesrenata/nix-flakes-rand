@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, pkgs-unstable, ... }:
 {
   config = {
     # Enable OpenGL
@@ -7,7 +7,7 @@
       driSupport = true;
       driSupport32Bit = true;
       extraPackages32 = with pkgs.pkgsi686Linux; [ intel-vaapi-driver ];
-      extraPackages = with pkgs; [ intel-vaapi-driver libvdpau-va-gl ];
+      extraPackages = with pkgs; [ intel-vaapi-driver libvdpau-va-gl pkgs-unstable.displaylink ];
     };
 
     # Load Intel driver for Xorg and Waylandard
