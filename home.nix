@@ -12,12 +12,12 @@ let
     rev = "edd316f3f40a6fcb2afadf5b6d9b14cc75a901e0";
     sha256 = "sha256-y8GoTHm0zPkeXhYS/enNAIrU+RhrUMnQ41MdHWWTPas=";
   };
-  winapps = pkgs.fetchFromGitHub {
-    owner = "celesrenata";
-    repo = "winapps";
-    rev = "0319c70fa0dec2da241e9a4b4e35a164f99d6307";
-    sha256 = "sha256-+ZAtEDrHuLJBzF+R6guD7jYltoQcs88qEMvvpjiAXqI=";
-  };
+#  winapps = pkgs.fetchFromGitHub {
+#    owner = "celesrenata";
+#    repo = "winapps";
+#    rev = "0319c70fa0dec2da241e9a4b4e35a164f99d6307";
+#    sha256 = "sha256-+ZAtEDrHuLJBzF+R6guD7jYltoQcs88qEMvvpjiAXqI=";
+#  };
 
   in
   {
@@ -35,8 +35,8 @@ let
   };
 
   # TODO please change the username & home directory to your own
-  home.username = "squid";
-  home.homeDirectory = "/home/squid";
+  home.username = "bee";
+  home.homeDirectory = "/home/bee";
 
   # link the configuration file in current directory to the specified location in home directory
   # home.file.".config/i3/wallpaper.jpg".source = ./wallpaper.jpg;
@@ -52,14 +52,14 @@ let
     source = celes-dots + "/Backgrounds";
     recursive = true;
   };
-  home.file."winapps/pkg" = {
-    source = winapps;
-    recursive = true;
-    executable = true;
-  };
-  home.file."winapps/runmefirst.sh" = {
-    source = winapps + "/runmefirst.sh";
-  };
+  #home.file."winapps/pkg" = {
+  #  source = winapps;
+  #  recursive = true;
+  #  executable = true;
+  #};
+  #home.file."winapps/runmefirst.sh" = {
+  #  source = winapps + "/runmefirst.sh";
+  #};
   home.file.".local/bin/initialSetup.sh" = {
     source = pkgs.end-4-dots + "/.local/bin/initialSetup.sh";
   };

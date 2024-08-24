@@ -98,7 +98,7 @@
               inherit pkgs-unstable;
               inherit pkgs-old;
             };
-            home-manager.users.squid = import ./home.nix;
+            home-manager.users.bee = import ./home.nix;
           }
         ];
       };

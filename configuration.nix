@@ -143,7 +143,7 @@
   security.sudo.configFile = ''
     root   ALL=(ALL:ALL) SETENV: ALL
     %wheel ALL=(ALL:ALL) SETENV: ALL
-    squid  ALL=(ALL:ALL) SETENV: ALL
+    bee  ALL=(ALL:ALL) SETENV: ALL
   '';
 
   # Gnome Keyring
@@ -159,10 +159,10 @@
   nix.optimise.automatic = true;
  
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.squid = {
+  users.users.bee = {
     isNormalUser = true;
-    password = "squid";
-    description = "Squiddy Squid Squid";
+    password = "waspssuck";
+    description = "Bee #1337";
     extraGroups = [ "networkmanager" "scanner" "lp" "wheel" "input" "uinput" "render" "video" "audio" "docker" "libvirt" "kvm" ];
     packages = with pkgs; [
       firefox
