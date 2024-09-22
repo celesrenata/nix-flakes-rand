@@ -265,6 +265,7 @@
     node2nix
     nil
     sublime4
+    jetbrains-toolbox
 
     # Session.
     polkit
