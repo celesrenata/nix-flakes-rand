@@ -50,7 +50,7 @@
 
   # Enable the GDM Display Manager.
   services.xserver.displayManager.sddm.enable = true;
-  services.displayManager.defaultSession = "plasma";
+  services.displayManager.defaultSession = "hyprland";
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
