@@ -35,8 +35,8 @@ let
   };
 
   # TODO please change the username & home directory to your own
-  home.username = "squid";
-  home.homeDirectory = "/home/squid";
+  home.username = "nemoo2";
+  home.homeDirectory = "/home/nemoo2";
 
   # link the configuration file in current directory to the specified location in home directory
   # home.file.".config/i3/wallpaper.jpg".source = ./wallpaper.jpg;
