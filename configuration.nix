@@ -31,7 +31,7 @@
 
   #services.automatic-timezoned.enable = true;
   #location.provider = "geoclue2";
-  time.timeZone = "America/Los_Angeles";
+  time.timeZone = "America/Chicago";
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
@@ -143,7 +143,7 @@
   security.sudo.configFile = ''
     root   ALL=(ALL:ALL) SETENV: ALL
     %wheel ALL=(ALL:ALL) SETENV: ALL
-    squid  ALL=(ALL:ALL) SETENV: ALL
+    nemoo2  ALL=(ALL:ALL) SETENV: ALL
   '';
 
   # Enable touchpad support (enabled default in most desktopManager).
@@ -181,10 +181,10 @@
   nix.optimise.automatic = true;
  
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.squid = {
+  users.users.nemoo2 = {
     isNormalUser = true;
-    password = "squid";
-    description = "Squiddy Squid Squid";
+    password = "hello";
+    description = "Nemoo2";
     extraGroups = [ "networkmanager" "scanner" "lp" "wheel" "input" "uinput" "render" "video" "audio" "docker" "libvirt" "kvm" ];
     packages = with pkgs; [
       firefox
