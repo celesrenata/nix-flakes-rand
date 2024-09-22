@@ -49,7 +49,7 @@
   };
 
   # Enable the GDM Display Manager.
-  services.xserver.displayManager.sddm.enable = true;
+  services.xserver.displayManager.gdm.enable = true;
   services.displayManager.defaultSession = "hyprland";
   # Enable the X11 windowing system.
   services.xserver.enable = true;
@@ -146,8 +146,6 @@
     nemoo2  ALL=(ALL:ALL) SETENV: ALL
   '';
 
-  # Enable touchpad support (enabled default in most desktopManager).
-  services.libinput.enable = true;
   services.keyd = {
     enable = true;
     keyboards.mac.settings = {

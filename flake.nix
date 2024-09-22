@@ -98,7 +98,7 @@
               inherit pkgs-unstable;
               inherit pkgs-old;
             };
-            home-manager.users.squid = import ./home.nix;
+            home-manager.users.nemoo2 = import ./home.nix;
           }
         ];
       };
