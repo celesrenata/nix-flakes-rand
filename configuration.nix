@@ -146,6 +146,28 @@
     squid  ALL=(ALL:ALL) SETENV: ALL
   '';
 
+  # Enable touchpad support (enabled default in most desktopManager).
+  services.libinput.enable = true;
+  services.keyd = {
+    enable = true;
+    keyboards.mac.settings = {
+      main = {
+        fn = "overload(464)";
+        control = "layer(meta)";
+        meta = "layer(control)";
+        rightcontrol = "layer(meta)";
+      };
+      meta = {
+        left =  "control-left";
+        right = "control-right";
+        space = "control-space";
+      };
+    };
+    keyboards.mac.ids = [
+      "*"
+    ];
+  };
+
   # Gnome Keyring
   services.gnome.gnome-keyring.enable = true;
 
